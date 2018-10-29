@@ -1,4 +1,4 @@
-﻿import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from scipy.io import wavfile
 import os
 from pydub import AudioSegment
@@ -28,19 +28,19 @@ def match_target_amplitude(sound, target_dBFS):
 
 # Load raw audio files for speech synthesis
 def load_raw_audio():
-    positive= []
+    activates = []
     backgrounds = []
-    negative = []
-    for filename in os.listdir("./new/positive"):
+    negatives = []
+    for filename in os.listdir("./positives"):
         if filename.endswith("wav"):
-            help = AudioSegment.from_wav("./new/positive/"+filename)
-            positive.append(help)
-    for filename in os.listdir("./new/background"):
+            activate = AudioSegment.from_wav("./positives/"+filename)
+            activates.append(activate)
+    for filename in os.listdir("./backgrounds"):
         if filename.endswith("wav"):
-            help_background = AudioSegment.from_wav("./raw_data/background/"+filename)
-            background.append(help_background)
-    for filename in os.listdir("./raw_data/negative"):
+            background = AudioSegment.from_wav("./backgrounds/"+filename)
+            backgrounds.append(background)
+    for filename in os.listdir("./negatives"):
         if filename.endswith("wav"):
-            help_negative = AudioSegment.from_wav("./raw_data/negative/"+filename)
-            negative.append(help_negative)
-    return help, help_negative, help_background
+            negative = AudioSegment.from_wav("./negatives/"+filename)
+            negatives.append(negative)
+    return activates, negatives, backgrounds
